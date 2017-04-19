@@ -13,4 +13,8 @@ class String
     end
     has_won
   end
+
+  define_method(:is_tie?) do |p2|
+    self.downcase == p2.downcase
+  end
 end
