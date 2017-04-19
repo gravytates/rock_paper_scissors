@@ -22,3 +22,17 @@ get('/results') do
   end
   erb(:results)
 end
+
+get('/cpugame') do
+  @p_input = params.fetch('player')
+  @cpu_move = "duncare".play_cpu
+
+  if @p_input.is_tie?(@cpu_move)
+    @result = "Game is a tie"
+  elsif @p_input.beats?(@cpu_move)
+    @result = @p_input + " beats " + @cpu_move + ". Player 1 wins!"
+  else
+    @result = @cpu_move + " beats " + @p_input + ". Computer wins!"
+  end
+  erb(:cpu_results)
+end
