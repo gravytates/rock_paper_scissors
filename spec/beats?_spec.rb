@@ -9,6 +9,10 @@ describe("String#beats?") do
   it('returns true if any player 1 win condition is met') do
     expect('paper'.beats?('rock')).to(eq(true))
   end
+
+  it('returns false if any player 1 win condition is not met') do
+    expect('paper'.beats?('scissors')).to(eq(false))
+  end
 end
 
 describe("String#is_tie?") do
