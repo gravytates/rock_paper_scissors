@@ -20,4 +20,11 @@ describe('the beats? case path', {:type => :feature}) do
     click_button('Play')
     expect(page).to have_content('1')
   end
+  it('when player 1 plays paper and player 2 plays scissors inform the players player 2 wins') do
+    visit('/')
+    fill_in('player1', :with => 'paper')
+    fill_in('player2', :with => 'scissors')
+    click_button('Play')
+    expect(page).to have_content('2')
+  end
 end
